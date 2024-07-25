@@ -64,7 +64,6 @@ const goBack = () => {
 }
 
 const setDateFormat = (e: Event) => {
-    console.log(currentDate)
     currentDate = e.target.value
     newBook.releaseDate = new Date(currentDate).getTime();
 
