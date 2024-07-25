@@ -25,7 +25,7 @@
         <div>
             <label for="bookType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Release
                 Date</label>
-            <input type="date" v-model="(formattedDate)"
+            <input type="date" v-model="(formattedDate)" @change="setDateFormat"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
         </div>
@@ -60,6 +60,13 @@ const detail = ref('');
 
 const goBack = () => {
     router.push('/')
+}
+
+let currentDate = ""
+
+const setDateFormat = (e: Event) => {
+    currentDate = e.target.value
+    detail.value.releaseDate = new Date(currentDate).getTime();
 }
 
 const editBook = () => {
